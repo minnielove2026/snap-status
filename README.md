@@ -49,6 +49,8 @@ GitHub Actions requires these repository secrets:
 - `CLOUDFLARE_API_TOKEN` — token with Workers Scripts edit and zone route/domain permissions.
 - `CLOUDFLARE_ACCOUNT_ID` — the Cloudflare account ID.
 
+After setting both secrets, set the repository variable `CLOUDFLARE_DEPLOY_ENABLED` to `true`. Until then, scheduled deployment jobs are cleanly skipped rather than failing every hour.
+
 The **Refresh and deploy** workflow runs at minute 17 each hour, generates data inside the runner, verifies the project, and deploys it directly. It never commits generated data back to the repository.
 
 ## Verification

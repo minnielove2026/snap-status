@@ -16,6 +16,7 @@ concurrency:
 
 jobs:
   deploy:
+    if: vars.CLOUDFLARE_DEPLOY_ENABLED == 'true'
     runs-on: ubuntu-latest
     environment:
       name: production
