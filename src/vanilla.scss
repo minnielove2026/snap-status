@@ -1,0 +1,262 @@
+@import "vanilla-framework";
+@include vanilla;
+
+$ubuntu-orange: #e95420;
+$status-green: #0e8420;
+$status-red: #c7162b;
+$status-yellow: #f99b11;
+
+body {
+  min-width: 320px;
+}
+
+.p-navigation__tagged-logo .p-navigation__link {
+  padding-left: 1rem;
+}
+
+.status-strip {
+  border-bottom: 1px solid $colors--theme--border-low-contrast;
+}
+
+.status-strip__items {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+}
+
+.status-strip__items span,
+.status-strip__items button {
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+.status-strip__items button {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  padding: 0;
+  text-align: left;
+}
+
+.status-strip__items button:hover {
+  text-decoration: underline;
+}
+
+.status-count--current {
+  color: $status-green;
+}
+
+.status-count--outdated {
+  color: $status-red;
+}
+
+.status-count--testing {
+  color: #a75d00;
+}
+
+.intro-strip {
+  padding-top: 3rem;
+}
+
+.section-kicker {
+  font-size: 0.875rem;
+  font-weight: 550;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+.intro-note {
+  align-self: end;
+  color: $colors--theme--text-muted;
+}
+
+.table-strip {
+  padding-top: 1rem;
+}
+
+.table-heading {
+  align-items: end;
+  margin-bottom: 1rem;
+}
+
+.table-heading h2 {
+  margin-bottom: 0.5rem;
+}
+
+.p-search-box {
+  margin-bottom: 0;
+}
+
+.filter-bar {
+  border-bottom: 1px solid $colors--theme--border-default;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+}
+
+.filter-bar .p-button {
+  margin-bottom: 0;
+}
+
+.filter-bar .p-button.is-selected {
+  background-color: $ubuntu-orange;
+  border-color: $ubuntu-orange;
+  color: #fff;
+}
+
+.filter-count {
+  font-size: 0.75rem;
+  margin-left: 0.25rem;
+  opacity: 0.75;
+}
+
+.table-scroll {
+  overflow-x: auto;
+}
+
+.p-table--mobile-card {
+  min-width: 68rem;
+}
+
+.p-table--mobile-card th,
+.p-table--mobile-card td {
+  vertical-align: middle;
+}
+
+.p-table--mobile-card tbody tr:hover {
+  background: $colors--theme--background-hover;
+}
+
+.sort-button {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  font-size: inherit;
+  font-weight: inherit;
+  margin: -0.5rem;
+  padding: 0.5rem;
+  text-align: left;
+  width: calc(100% + 1rem);
+}
+
+.sort-button:hover,
+.sort-button.is-sorted {
+  color: $ubuntu-orange;
+}
+
+.sort-arrow {
+  font-size: 0.625rem;
+  margin-left: 0.25rem;
+}
+
+.app-cell a {
+  display: block;
+  font-weight: 550;
+  text-decoration: none;
+}
+
+.app-cell small {
+  color: $colors--theme--text-muted;
+  display: block;
+  font-weight: normal;
+  margin-top: 0.125rem;
+}
+
+code {
+  background: $colors--theme--background-alt;
+  color: $colors--theme--text-default;
+  font-size: 0.875rem;
+  padding: 0.125rem 0.25rem;
+  white-space: nowrap;
+}
+
+.version-variant {
+  background: $colors--theme--background-alt;
+  border-radius: 1rem;
+  color: $colors--theme--text-muted;
+  cursor: help;
+  display: inline-block;
+  font-size: 0.6875rem;
+  margin-left: 0.35rem;
+  padding: 0.1rem 0.4rem;
+}
+
+.p-chip--positive,
+.p-chip--negative,
+.p-chip--caution,
+.p-chip--information {
+  margin-bottom: 0;
+  white-space: nowrap;
+}
+
+.no-results {
+  padding: 4rem 1rem !important;
+  text-align: center;
+}
+
+.table-footer {
+  border-top: 1px solid $colors--theme--border-low-contrast;
+  color: $colors--theme--text-muted;
+  display: flex;
+  font-size: 0.875rem;
+  justify-content: space-between;
+  padding-top: 1rem;
+}
+
+.page-footer {
+  border-top: 1px solid $colors--theme--border-low-contrast;
+  color: $colors--theme--text-muted;
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.page-footer p {
+  margin-bottom: 0;
+}
+
+@media (max-width: $breakpoint-small) {
+  .status-strip__items {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .intro-strip {
+    padding-top: 2rem;
+  }
+
+  .table-heading .p-search-box {
+    margin-top: 1rem;
+  }
+
+  .filter-bar {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 0.75rem;
+  }
+
+  .filter-bar .p-button {
+    flex: 0 0 auto;
+  }
+
+  .table-scroll {
+    overflow: visible;
+  }
+
+  .p-table--mobile-card {
+    min-width: 0;
+  }
+
+  .table-footer {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+}

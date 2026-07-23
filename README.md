@@ -1,6 +1,6 @@
 # Snap Status
 
-A compact maintenance dashboard for snaps published by [`popey`](https://snapcraft.io/publisher/popey). It compares the versions in `stable`, `candidate`, `beta`, and `edge` against each project's latest upstream release.
+A compact maintenance dashboard for snaps published by [`popey`](https://snapcraft.io/publisher/popey). It compares the versions in `stable`, `candidate`, `beta`, and `edge` against each project's latest upstream release. The interface is built with [Canonical Vanilla Framework](https://vanillaframework.io/) to match the Ubuntu and Snap ecosystem.
 
 ## What it does
 

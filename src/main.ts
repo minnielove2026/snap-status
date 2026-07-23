@@ -1,4 +1,4 @@
-import "./styles.css";
+import "./vanilla.scss";
 import {
   classifyStatus,
   compareVersions,
@@ -37,6 +37,12 @@ const statusLabels: Record<SnapStatus, string> = {
   outdated: "Update needed",
   unknown: "Needs mapping",
 };
+const chipClasses: Record<SnapStatus, string> = {
+  current: "p-chip--positive",
+  testing: "p-chip--caution",
+  outdated: "p-chip--negative",
+  unknown: "p-chip--information",
+};
 
 const escapeHtml = (value: string): string =>
   value.replace(
@@ -61,15 +67,6 @@ const relativeTime = (iso: string): string => {
   const minutes = Math.round(seconds / 60);
   if (Math.abs(minutes) < 90) return formatter.format(minutes, "minute");
   return formatter.format(Math.round(minutes / 60), "hour");
-};
-
-const channelCell = (channel: ChannelInfo): string => {
-  if (!channel.version) return '<span class="empty">—</span>';
-  const variants = channel.versions.length - 1;
-  const title = variants > 0 ? ` title="Also: ${escapeHtml(channel.versions.slice(1).join(", "))}"` : "";
-  return `<code>${escapeHtml(channel.version)}</code>${
-    variants > 0 ? `<span class="variant"${title}>+${variants}</span>` : ""
-  }`;
 };
 
 const app = document.querySelector<HTMLDivElement>("#app");
@@ -103,62 +100,113 @@ function render(data: DashboardData, snaps: EnrichedSnap[]): void {
   ) as Record<SnapStatus, number>;
 
   app!.innerHTML = `
-    <header class="topbar">
-      <div class="topbar-inner">
-        <a class="brand" href="/" aria-label="Snap Status home"><span class="brand-mark">S</span><span>SNAP STATUS</span></a>
-        <div class="live"><span class="live-dot"></span> Updated ${escapeHtml(relativeTime(data.generatedAt))}</div>
+    <header id="navigation" class="p-navigation is-dark">
+      <div class="p-navigation__row--25-75">
+        <div class="p-navigation__banner">
+          <div class="p-navigation__tagged-logo">
+            <a class="p-navigation__link" href="/">
+              <span class="p-navigation__logo-title">Snap Status</span>
+            </a>
+          </div>
+          <ul class="p-navigation__items">
+            <li class="p-navigation__item">
+              <button class="p-navigation__toggle--open js-menu-button">Menu</button>
+              <button class="p-navigation__toggle--close js-menu-button">Close</button>
+            </li>
+          </ul>
+        </div>
+        <nav class="p-navigation__nav" aria-label="Status filters">
+          <ul class="p-navigation__items">
+            ${navItem("All snaps", "all", true)}
+            ${navItem("Update needed", "outdated")}
+            ${navItem("In testing", "testing")}
+            ${navItem("Needs mapping", "unknown")}
+          </ul>
+          <ul class="p-navigation__items">
+            <li class="p-navigation__item"><a class="p-navigation__link" href="https://github.com/popey/snap-status" target="_blank" rel="noreferrer">GitHub ↗</a></li>
+          </ul>
+        </nav>
       </div>
     </header>
-    <main class="shell">
-      <section class="intro">
-        <div>
-          <p class="eyebrow">MAINTENANCE CONSOLE / ${escapeHtml(data.publisher.toUpperCase())}</p>
-          <h1>Release status at a glance.</h1>
-          <p class="lede">Stable, candidate, beta and edge channels compared with each project's latest upstream release.</p>
-        </div>
-        <a class="source-link" href="https://github.com/popey/snap-status" target="_blank" rel="noreferrer">View source <span aria-hidden="true">↗</span></a>
-      </section>
 
-      <section class="summary" aria-label="Status summary">
-        ${summaryCard("All snaps", data.count, "all")}
-        ${summaryCard("Update needed", counts.outdated, "outdated")}
-        ${summaryCard("In testing", counts.testing, "testing")}
-        ${summaryCard("Needs mapping", counts.unknown, "unknown")}
-      </section>
+    <section class="p-strip--light is-shallow status-strip" aria-label="Status summary">
+      <div class="u-fixed-width status-strip__items">
+        <span><strong>${data.count}</strong> snaps tracked</span>
+        <button data-status="current"><strong class="status-count--current">${counts.current}</strong> current</button>
+        <button data-status="outdated"><strong class="status-count--outdated">${counts.outdated}</strong> need updates</button>
+        <button data-status="testing"><strong class="status-count--testing">${counts.testing}</strong> in testing</button>
+        <button data-status="unknown"><strong>${counts.unknown}</strong> need mapping</button>
+        <span>Synced <strong>${escapeHtml(relativeTime(data.generatedAt))}</strong></span>
+      </div>
+    </section>
 
-      <section class="panel">
-        <div class="toolbar">
-          <label class="search"><span class="search-icon" aria-hidden="true">⌕</span><span class="sr-only">Search snaps</span><input id="search" type="search" placeholder="Filter by app or snap name…" autocomplete="off" /></label>
-          <div class="filters" aria-label="Filter by status">
-            ${filterButton("All", "all", data.count, true)}
-            ${filterButton("Current", "current", counts.current)}
-            ${filterButton("Testing", "testing", counts.testing)}
-            ${filterButton("Outdated", "outdated", counts.outdated)}
-            ${filterButton("Unknown", "unknown", counts.unknown)}
+    <main>
+      <section class="p-strip is-shallow intro-strip">
+        <div class="row">
+          <div class="col-8">
+            <p class="p-heading--5 section-kicker">MAINTAINED BY ${escapeHtml(data.publisher.toUpperCase())}</p>
+            <h1>Snap maintenance dashboard</h1>
+            <p class="p-heading--4">Compare every release channel with the latest upstream version.</p>
+          </div>
+          <div class="col-4 intro-note">
+            <p>Live data from the Snap Store, GitHub, Codeberg and npm. Refreshes hourly.</p>
           </div>
         </div>
-        <div class="table-wrap">
-          <table>
-            <thead><tr>
-              ${heading("Application", "title")}
-              ${heading("Stable", "stable")}
-              ${heading("Candidate", "candidate")}
-              ${heading("Beta", "beta")}
-              ${heading("Edge", "edge")}
-              ${heading("Upstream", "upstream")}
-              ${heading("Status", "status")}
-            </tr></thead>
-            <tbody id="rows"></tbody>
-          </table>
+      </section>
+
+      <section id="snap-table" class="p-strip is-shallow table-strip">
+        <div class="row table-heading">
+          <div class="col-6"><h2 class="p-heading--4">Maintained snaps</h2></div>
+          <div class="col-6">
+            <form class="p-search-box" id="search-form" role="search">
+              <label class="u-off-screen" for="search">Filter snaps</label>
+              <input type="search" id="search" class="p-search-box__input" placeholder="Filter by app or snap name…" autocomplete="off" />
+              <button type="reset" class="p-search-box__reset"><i class="p-icon--close">Clear</i></button>
+              <button type="submit" class="p-search-box__button"><i class="p-icon--search">Search</i></button>
+            </form>
+          </div>
         </div>
-        <div class="panel-footer"><span id="result-count"></span><span>Generated <time datetime="${escapeHtml(data.generatedAt)}">${escapeHtml(new Date(data.generatedAt).toLocaleString("en-GB", { dateStyle: "medium", timeStyle: "short", timeZone: "Europe/London" }))}</time></span></div>
+
+        <div class="row">
+          <div class="col-12">
+            <div class="filter-bar" aria-label="Filter by status">
+              ${filterButton("All", "all", data.count, true)}
+              ${filterButton("Current", "current", counts.current)}
+              ${filterButton("Update needed", "outdated", counts.outdated)}
+              ${filterButton("In testing", "testing", counts.testing)}
+              ${filterButton("Needs mapping", "unknown", counts.unknown)}
+            </div>
+            <div class="table-scroll">
+              <table class="p-table--mobile-card" role="grid">
+                <thead><tr>
+                  ${heading("Application", "title")}
+                  ${heading("Stable", "stable")}
+                  ${heading("Candidate", "candidate")}
+                  ${heading("Beta", "beta")}
+                  ${heading("Edge", "edge")}
+                  ${heading("Upstream", "upstream")}
+                  ${heading("Status", "status")}
+                </tr></thead>
+                <tbody id="rows"></tbody>
+              </table>
+            </div>
+            <div class="table-footer">
+              <span id="result-count"></span>
+              <span>Generated <time datetime="${escapeHtml(data.generatedAt)}">${escapeHtml(new Date(data.generatedAt).toLocaleString("en-GB", { dateStyle: "medium", timeStyle: "short", timeZone: "Europe/London" }))}</time></span>
+            </div>
+          </div>
+        </div>
       </section>
     </main>
-    <footer><div class="shell footer-inner"><span>Data from Snap Store and upstream release APIs.</span><span>Refreshes hourly.</span></div></footer>
+
+    <footer class="p-strip is-shallow page-footer">
+      <div class="row"><div class="col-12"><p>Personal maintenance dashboard. Not affiliated with Canonical or Snapcraft.io. Data sourced from public APIs.</p></div></div>
+    </footer>
   `;
 
   const rows = document.querySelector<HTMLTableSectionElement>("#rows")!;
   const resultCount = document.querySelector<HTMLSpanElement>("#result-count")!;
+  const searchInput = document.querySelector<HTMLInputElement>("#search")!;
 
   const drawRows = (): void => {
     const filtered = snaps
@@ -173,34 +221,58 @@ function render(data: DashboardData, snaps: EnrichedSnap[]): void {
 
     document.querySelectorAll<HTMLButtonElement>("[data-sort]").forEach((button) => {
       const active = button.dataset.sort === sortKey;
-      button.classList.toggle("sorted", active);
-      button.setAttribute("aria-sort", active ? (sortDirection === 1 ? "ascending" : "descending") : "none");
-      button.querySelector(".sort-arrow")!.textContent = active ? (sortDirection === 1 ? "↑" : "↓") : "↕";
+      button.classList.toggle("is-sorted", active);
+      button.closest("th")?.setAttribute(
+        "aria-sort",
+        active ? (sortDirection === 1 ? "ascending" : "descending") : "none",
+      );
+      button.querySelector(".sort-arrow")!.textContent = active ? (sortDirection === 1 ? "▲" : "▼") : "";
     });
   };
 
-  document.querySelector<HTMLInputElement>("#search")!.addEventListener("input", (event) => {
-    search = (event.currentTarget as HTMLInputElement).value.trim().toLowerCase();
+  const setStatus = (status: SnapStatus | "all"): void => {
+    activeStatus = status;
+    document.querySelectorAll("[data-filter-status]").forEach((item) => {
+      item.classList.toggle("is-selected", (item as HTMLElement).dataset.filterStatus === status);
+    });
+    document.querySelectorAll("[data-nav-status]").forEach((item) => {
+      item.parentElement?.classList.toggle("is-selected", (item as HTMLElement).dataset.navStatus === status);
+    });
+    drawRows();
+  };
+
+  document.querySelector<HTMLFormElement>("#search-form")!.addEventListener("submit", (event) => {
+    event.preventDefault();
+    search = searchInput.value.trim().toLowerCase();
     drawRows();
   });
-
-  document.querySelectorAll<HTMLButtonElement>("[data-status]").forEach((button) => {
-    button.addEventListener("click", () => {
-      activeStatus = button.dataset.status as SnapStatus | "all";
-      document.querySelectorAll("[data-status]").forEach((item) => item.classList.remove("active"));
-      button.classList.add("active");
+  searchInput.addEventListener("input", () => {
+    search = searchInput.value.trim().toLowerCase();
+    drawRows();
+  });
+  document.querySelector<HTMLFormElement>("#search-form")!.addEventListener("reset", () => {
+    window.setTimeout(() => {
+      search = "";
       drawRows();
     });
   });
 
-  document.querySelectorAll<HTMLButtonElement>("[data-summary]").forEach((button) => {
+  document.querySelectorAll<HTMLElement>("[data-status]").forEach((button) => {
     button.addEventListener("click", () => {
-      const target = document.querySelector<HTMLButtonElement>(`[data-status="${button.dataset.summary}"]`);
-      target?.click();
-      document.querySelector(".panel")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      setStatus(button.dataset.status as SnapStatus | "all");
+      document.querySelector("#snap-table")?.scrollIntoView({ behavior: "smooth", block: "start" });
     });
   });
-
+  document.querySelectorAll<HTMLButtonElement>("[data-filter-status]").forEach((button) => {
+    button.addEventListener("click", () => setStatus(button.dataset.filterStatus as SnapStatus | "all"));
+  });
+  document.querySelectorAll<HTMLAnchorElement>("[data-nav-status]").forEach((link) => {
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      setStatus(link.dataset.navStatus as SnapStatus | "all");
+      document.querySelector("#snap-table")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  });
   document.querySelectorAll<HTMLButtonElement>("[data-sort]").forEach((button) => {
     button.addEventListener("click", () => {
       const next = button.dataset.sort as SortKey;
@@ -212,28 +284,38 @@ function render(data: DashboardData, snaps: EnrichedSnap[]): void {
       drawRows();
     });
   });
+  document.querySelectorAll<HTMLButtonElement>(".js-menu-button").forEach((button) => {
+    button.addEventListener("click", () => document.querySelector("#navigation")?.classList.toggle("has-menu-open"));
+  });
 
   drawRows();
   document.querySelector("main")?.setAttribute("aria-busy", "false");
 }
 
-function summaryCard(label: string, count: number, status: SnapStatus | "all"): string {
-  return `<button class="summary-card summary-${status}" data-summary="${status}"><span>${escapeHtml(label)}</span><strong>${count}</strong><i></i></button>`;
+function navItem(label: string, status: SnapStatus | "all", selected = false): string {
+  return `<li class="p-navigation__item${selected ? " is-selected" : ""}"><a class="p-navigation__link" href="#snap-table" data-nav-status="${status}">${escapeHtml(label)}</a></li>`;
 }
 
-function filterButton(label: string, status: SnapStatus | "all", count: number, active = false): string {
-  return `<button class="filter ${active ? "active" : ""}" data-status="${status}">${escapeHtml(label)} <span>${count}</span></button>`;
+function filterButton(label: string, status: SnapStatus | "all", count: number, selected = false): string {
+  return `<button type="button" class="p-button is-small${selected ? " is-selected" : ""}" data-filter-status="${status}">${escapeHtml(label)} <span class="filter-count">${count}</span></button>`;
 }
 
 function heading(label: string, key: SortKey): string {
-  return `<th><button data-sort="${key}" aria-sort="none">${escapeHtml(label)} <span class="sort-arrow" aria-hidden="true">↕</span></button></th>`;
+  return `<th scope="col" aria-sort="none"><button class="sort-button" data-sort="${key}">${escapeHtml(label)} <span class="sort-arrow" aria-hidden="true"></span></button></th>`;
+}
+
+function channelCell(channel: ChannelInfo, headingLabel: string): string {
+  if (!channel.version) return `<td data-heading="${headingLabel}"><span class="u-text--muted">—</span></td>`;
+  const variants = channel.versions.length - 1;
+  const title = variants > 0 ? ` title="Also: ${escapeHtml(channel.versions.slice(1).join(", "))}"` : "";
+  return `<td data-heading="${headingLabel}"><code>${escapeHtml(channel.version)}</code>${
+    variants > 0 ? `<span class="version-variant"${title}>+${variants}</span>` : ""
+  }</td>`;
 }
 
 function sortSnaps(a: EnrichedSnap, b: EnrichedSnap, key: SortKey): number {
   if (key === "title") return a.title.localeCompare(b.title);
-  if (key === "status") {
-    return statusOrder[a.status] - statusOrder[b.status] || a.title.localeCompare(b.title);
-  }
+  if (key === "status") return statusOrder[a.status] - statusOrder[b.status] || a.title.localeCompare(b.title);
   if (key === "upstream") {
     const left = a.upstream.version;
     const right = b.upstream.version;
@@ -249,18 +331,21 @@ function sortSnaps(a: EnrichedSnap, b: EnrichedSnap, key: SortKey): number {
 function rowHtml(snap: EnrichedSnap): string {
   const upstream = snap.upstream.version
     ? snap.upstream.url
-      ? `<a class="version-link" href="${safeUrl(snap.upstream.url)}" target="_blank" rel="noreferrer"><code>${escapeHtml(snap.upstream.version)}</code> <span aria-hidden="true">↗</span></a>`
+      ? `<a href="${safeUrl(snap.upstream.url)}" target="_blank" rel="noreferrer"><code>${escapeHtml(snap.upstream.version)}</code></a>`
       : `<code>${escapeHtml(snap.upstream.version)}</code>`
-    : `<span class="empty" title="${escapeHtml(snap.upstream.error ?? "No upstream version")}">—</span>`;
-  return `<tr class="row-${snap.status}">
-    <td class="app-cell"><a href="${safeUrl(snap.storeUrl)}" target="_blank" rel="noreferrer"><strong>${escapeHtml(snap.title)}</strong><span>${escapeHtml(snap.name)} ↗</span></a></td>
-    ${risks.map((risk) => `<td data-label="${risk}">${channelCell(snap.channels[risk])}</td>`).join("")}
-    <td data-label="upstream">${upstream}</td>
-    <td data-label="status"><span class="status status-${snap.status}"><i></i>${statusLabels[snap.status]}</span></td>
+    : `<span class="u-text--muted" title="${escapeHtml(snap.upstream.error ?? "No upstream version")}">—</span>`;
+  return `<tr>
+    <th scope="row" data-heading="Application" class="app-cell"><a href="${safeUrl(snap.storeUrl)}" target="_blank" rel="noreferrer">${escapeHtml(snap.title)}</a><small>${escapeHtml(snap.name)}</small></th>
+    ${channelCell(snap.channels.stable, "Stable")}
+    ${channelCell(snap.channels.candidate, "Candidate")}
+    ${channelCell(snap.channels.beta, "Beta")}
+    ${channelCell(snap.channels.edge, "Edge")}
+    <td data-heading="Upstream">${upstream}</td>
+    <td data-heading="Status"><span class="${chipClasses[snap.status]}">${statusLabels[snap.status]}</span></td>
   </tr>`;
 }
 
 load().catch((error: unknown) => {
   const message = error instanceof Error ? error.message : "Unknown error";
-  app!.innerHTML = `<main class="shell"><div class="error-state"><p class="eyebrow">DATA UNAVAILABLE</p><h1>Could not load snap status.</h1><p>${escapeHtml(message)}</p><button onclick="location.reload()">Try again</button></div></main>`;
+  app!.innerHTML = `<main class="p-strip"><div class="u-fixed-width"><div class="p-notification--negative"><div class="p-notification__content"><h1 class="p-notification__title">Could not load snap status</h1><p class="p-notification__message">${escapeHtml(message)}</p></div></div><p><a class="p-button" href="/">Try again</a></p></div></main>`;
 });
