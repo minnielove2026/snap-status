@@ -1,0 +1,1773 @@
+{
+  "generatedAt": "2026-07-23T15:10:58.337163Z",
+  "publisher": "popey",
+  "count": 53,
+  "snaps": [
+    {
+      "name": "add-flatpak",
+      "title": "Add Flatpak",
+      "storeUrl": "https://snapcraft.io/add-flatpak",
+      "channels": {
+        "stable": {
+          "version": "0.1.0",
+          "versions": [
+            "0.1.0"
+          ]
+        },
+        "candidate": {
+          "version": null,
+          "versions": []
+        },
+        "beta": {
+          "version": null,
+          "versions": []
+        },
+        "edge": {
+          "version": "0.1.0",
+          "versions": [
+            "0.1.0"
+          ]
+        }
+      },
+      "storeError": null,
+      "upstream": {
+        "version": null,
+        "url": null,
+        "error": "Upstream not configured"
+      }
+    },
+    {
+      "name": "azimuth",
+      "title": "azimuth",
+      "storeUrl": "https://snapcraft.io/azimuth",
+      "channels": {
+        "stable": {
+          "version": "v1.0.3",
+          "versions": [
+            "v1.0.3",
+            "v1.0.3-54-g050f838b"
+          ]
+        },
+        "candidate": {
+          "version": null,
+          "versions": []
+        },
+        "beta": {
+          "version": "v1.0.3",
+          "versions": [
+            "v1.0.3",
+            "v1.0.3-54-g050f838b"
+          ]
+        },
+        "edge": {
+          "version": "v1.0.4",
+          "versions": [
+            "v1.0.4",
+            "1.0.3-54-g050f838b",
+            "1.0.3-23-g8c4290d5"
+          ]
+        }
+      },
+      "storeError": null,
+      "upstream": {
+        "version": "v1.0.2",
+        "url": "https://github.com/mdsteele/azimuth/releases",
+        "error": null
+      }
+    },
+    {
+      "name": "b2",
+      "title": "b2",
+      "storeUrl": "https://snapcraft.io/b2",
+      "channels": {
+        "stable": {
+          "version": "20260322-193052-51e70d7",
+          "versions": [
+            "20260322-193052-51e70d7",
+            "20250808-172419-959a8ab"
+          ]
+        },
+        "candidate": {
+          "version": null,
+          "versions": []
+        },
+        "beta": {
+          "version": null,
+          "versions": []
+        },
+        "edge": {
+          "version": "20260322-193052-51e70d7",
+          "versions": [
+            "20260322-193052-51e70d7",
+            "20250808-172419-959a8ab"
+          ]
+        }
+      },
+      "storeError": null,
+      "upstream": {
+        "version": "b2-20260322-193052-51e70d7",
+        "url": "https://github.com/tom-seddon/b2/releases",
+        "error": null
+      }
+    },
+    {
+      "name": "bandwhich",
+      "title": "bandwhich",
+      "storeUrl": "https://snapcraft.io/bandwhich",
+      "channels": {
+        "stable": {
+          "version": "v0.23.1",
+          "versions": [
+            "v0.23.1"
+          ]
+        },
+        "candidate": {
+          "version": null,
+          "versions": []
+        },
+        "beta": {
+          "version": null,
+          "versions": []
+        },
+        "edge": {
+          "version": "v0.23.1",
+          "versions": [
+            "v0.23.1"
+          ]
+        }
+      },
+      "storeError": null,
+      "upstream": {
+        "version": "v0.23.1",
+        "url": "https://github.com/imsnif/bandwhich/releases",
+        "error": null
+      }
+    },
+    {
+      "name": "bombsquad",
+      "title": "BombSquad",
+      "storeUrl": "https://snapcraft.io/bombsquad",
+      "channels": {
+        "stable": {
+          "version": "1.7.37",
+          "versions": [
+            "1.7.37"
+          ]
+        },
+        "candidate": {
+          "version": null,
+          "versions": []
+        },
+        "beta": {
+          "version": null,
+          "versions": []
+        },
+        "edge": {
+          "version": "1.7.39",
+          "versions": [
+            "1.7.39"
+          ]
+        }
+      },
+      "storeError": null,
+      "upstream": {
+        "version": "v1.7.63",
+        "url": "https://github.com/efroemling/ballistica/releases",
+        "error": null
+      }
+    },
+    {
+      "name": "classicube",
+      "title": "ClassiCube",
+      "storeUrl": "https://snapcraft.io/classicube",
+      "channels": {
+        "stable": {
+          "version": "1.3.8",
+          "versions": [
+            "1.3.8"
+          ]
+        },
+        "candidate": {
+          "version": null,
+          "versions": []
+        },
+        "beta": {
+          "version": "1.3.8",
+          "versions": [
+            "1.3.8"
+          ]
+        },
+        "edge": {
+          "version": "1.3.8-184-g89126be1d",
+          "versions": [
+            "1.3.8-184-g89126be1d"
+          ]
+        }
+      },
+      "storeError": null,
+      "upstream": {
+        "version": "1.3.8",
+        "url": "https://github.com/ClassiCube/ClassiCube/releases",
+        "error": null
+      }
+    },
+    {
+      "name": "x16emu",
+      "title": "Commander X16 Emulator",
+      "storeUrl": "https://snapcraft.io/x16emu",
+      "channels": {
+        "stable": {
+          "version": "r49",
+          "versions": [
+            "r49"
+          ]
+        },
+        "candidate": {
+          "version": null,
+          "versions": []
+        },
+        "beta": {
+          "version": null,
+          "versions": []
+        },
+        "edge": {
+          "version": "r49",
+          "versions": [
+            "r49"
+          ]
+        }
+      },
+      "storeError": null,
+      "upstream": {
+        "version": "r49",
+        "url": "https://github.com/X16Community/x16-emulator/releases",
+        "error": null
+      }
+    },
+    {
+      "name": "defold",
+      "title": "Defold",
+      "storeUrl": "https://snapcraft.io/defold",
+      "channels": {
+        "stable": {
+          "version": "1.13.0",
+          "versions": [
+            "1.13.0"
+          ]
+        },
+        "candidate": {
+          "version": null,
+          "versions": []
+        },
+        "beta": {
+          "version": null,
+          "versions": []
+        },
+        "edge": {
+          "version": "1.13.0",
+          "versions": [
+            "1.13.0"
+          ]
+        }
+      },
+      "storeError": null,
+      "upstream": {
+        "version": "1.13.0",
+        "url": "https://github.com/defold/defold/releases",
+        "error": null
+      }
+    },
+    {
+      "name": "dog",
+      "title": "dog",
+      "storeUrl": "https://snapcraft.io/dog",
+      "channels": {
+        "stable": {
+          "version": "v0.1.0",
+          "versions": [
+            "v0.1.0"
+          ]
+        },
+        "candidate": {
+          "version": null,
+          "versions": []
+        },
+        "beta": {
+          "version": "v0.1.0",
+          "versions": [
+            "v0.1.0"
+          ]
+        },
+        "edge": {
+          "version": "0.1.0",
+          "versions": [
+            "0.1.0",
+            "v0.1.0"
+          ]
+        }
+      },
+      "storeError": null,
+      "upstream": {
+        "version": "v0.1.0",
+        "url": "https://github.com/ogham/dog/releases",
+        "error": null
+      }
+    },
+    {
+      "name": "dosbox-staging",
+      "title": "DOSBox Staging",
+      "storeUrl": "https://snapcraft.io/dosbox-staging",
+      "channels": {
+        "stable": {
+          "version": "0.82.2",
+          "versions": [
+            "0.82.2"
+          ]
+        },
+        "candidate": {
+          "version": null,
+          "versions": []
+        },
+        "beta": {
+          "version": null,
+          "versions": []
+        },
+        "edge": {
+          "version": "0.82.2",
+          "versions": [
+            "0.82.2"
+          ]
+        }
+      },
+      "storeError": null,
+      "upstream": {
+        "version": "v0.82.2",
+        "url": "https://github.com/dosbox-staging/dosbox-staging/releases",
+        "error": null
+      }
+    },
+    {
+      "name": "dynahack",
+      "title": "DynaHack",
+      "storeUrl": "https://snapcraft.io/dynahack",
+      "channels": {
+        "stable": {
+          "version": "v0.6.0",
+          "versions": [
+            "v0.6.0"
+          ]
+        },
+        "candidate": {
+          "version": null,
+          "versions": []
+        },
+        "beta": {
+          "version": null,
+          "versions": []
+        },
+        "edge": {
+          "version": "v0.6.0",
+          "versions": [
+            "v0.6.0"
+          ]
+        }
+      },
+      "storeError": null,
+      "upstream": {
+        "version": "v0.6.0",
+        "url": "https://github.com/tung/DynaHack/releases",
+        "error": null
+      }
+    },
+    {
+      "name": "emoj",
+      "title": "emoj",
+      "storeUrl": "https://snapcraft.io/emoj",
+      "channels": {
+        "stable": {
+          "version": "v3.3.0.e60099d",
+          "versions": [
+            "v3.3.0.e60099d"
+          ]
+        },
+        "candidate": {
+          "version": null,
+          "versions": []
+        },
+        "beta": {
+          "version": "v3.3.0.e60099d",
+          "versions": [
+            "v3.3.0.e60099d"
+          ]
+        },
+        "edge": {
+          "version": "latest",
+          "versions": [
+            "latest"
+          ]
+        }
+      },
+      "storeError": null,
+      "upstream": {
+        "version": "v4.2.0",
+        "url": "https://github.com/sindresorhus/emoj/releases",
+        "error": null
+      }
+    },
+    {
+      "name": "emu2",
+      "title": "emu2",
+      "storeUrl": "https://snapcraft.io/emu2",
+      "channels": {
+        "stable": {
+          "version": "v2021.01",
+          "versions": [
+            "v2021.01"
+          ]
+        },
+        "candidate": {
+          "version": null,
+          "versions": []
+        },
+        "beta": {
+          "version": "v2021.01",
+          "versions": [
+            "v2021.01"
+          ]
+        },
+        "edge": {
+          "version": "v2021.01-149-g4948d1e",
+          "versions": [
+            "v2021.01-149-g4948d1e",
+            "v2021.01-162-g9d8698d"
+          ]
+        }
+      },
+      "storeError": null,
+      "upstream": {
+        "version": "v2021.01",
+        "url": "https://github.com/dmsc/emu2/releases",
+        "error": null
+      }
+    },
+    {
+      "name": "fab-agon-emulator",
+      "title": "Fab Agon Emulator",
+      "storeUrl": "https://snapcraft.io/fab-agon-emulator",
+      "channels": {
+        "stable": {
+          "version": "1.2.2",
+          "versions": [
+            "1.2.2"
+          ]
+        },
+        "candidate": {
+          "version": null,
+          "versions": []
+        },
+        "beta": {
+          "version": null,
+          "versions": []
+        },
+        "edge": {
+          "version": "1.2.2",
+          "versions": [
+            "1.2.2"
+          ]
+        }
+      },
+      "storeError": null,
+      "upstream": {
+        "version": "1.2.2",
+        "url": "https://github.com/tomm/fab-agon-emulator/releases",
+        "error": null
+      }
+    },
+    {
+      "name": "forgejo",
+      "title": "Forgejo",
+      "storeUrl": "https://snapcraft.io/forgejo",
+      "channels": {
+        "stable": {
+          "version": "v16.0.1",
+          "versions": [
+            "v16.0.1"
+          ]
+        },
+        "candidate": {
+          "version": "v16.0.1",
+          "versions": [
+            "v16.0.1"
+          ]
+        },
+        "beta": {
+          "version": null,
+          "versions": []
+        },
+        "edge": {
+          "version": null,
+          "versions": []
+        }
+      },
+      "storeError": null,
+      "upstream": {
+        "version": "v16.0.1",
+        "url": "https://codeberg.org/forgejo/forgejo/releases",
+        "error": null
+      }
+    },
+    {
+      "name": "grummage",
+      "title": "grummage",
+      "storeUrl": "https://snapcraft.io/grummage",
+      "channels": {
+        "stable": {
+          "version": "2.0.0",
+          "versions": [
+            "2.0.0"
+          ]
+        },
+        "candidate": {
+          "version": null,
+          "versions": []
+        },
+        "beta": {
+          "version": null,
+          "versions": []
+        },
+        "edge": {
+          "version": "2.0.0",
+          "versions": [
+            "2.0.0"
+          ]
+        }
+      },
+      "storeError": null,
+      "upstream": {
+        "version": "v2.0.0",
+        "url": "https://github.com/popey/grummage/releases",
+        "error": null
+      }
+    },
+    {
+      "name": "grype",
+      "title": "Grype - Container Vulnerability Scanner",
+      "storeUrl": "https://snapcraft.io/grype",
+      "channels": {
+        "stable": {
+          "version": "v0.116.0",
+          "versions": [
+            "v0.116.0"
+          ]
+        },
+        "candidate": {
+          "version": null,
+          "versions": []
+        },
+        "beta": {
+          "version": null,
+          "versions": []
+        },
+        "edge": {
+          "version": "v0.116.0",
+          "versions": [
+            "v0.116.0"
+          ]
+        }
+      },
+      "storeError": null,
+      "upstream": {
+        "version": "v0.116.0",
+        "url": "https://github.com/anchore/grype/releases",
+        "error": null
+      }
+    },
+    {
+      "name": "halloy",
+      "title": "halloy",
+      "storeUrl": "https://snapcraft.io/halloy",
+      "channels": {
+        "stable": {
+          "version": "2026.7.2",
+          "versions": [
+            "2026.7.2"
+          ]
+        },
+        "candidate": {
+          "version": null,
+          "versions": []
+        },
+        "beta": {
+          "version": null,
+          "versions": []
+        },
+        "edge": {
+          "version": "2026.7.2",
+          "versions": [
+            "2026.7.2"
+          ]
+        }
+      },
+      "storeError": null,
+      "upstream": {
+        "version": "2026.7.2",
+        "url": "https://github.com/squidowl/halloy/releases",
+        "error": null
+      }
+    },
+    {
+      "name": "iamb",
+      "title": "iamb",
+      "storeUrl": "https://snapcraft.io/iamb",
+      "channels": {
+        "stable": {
+          "version": "v0.0.11",
+          "versions": [
+            "v0.0.11"
+          ]
+        },
+        "candidate": {
+          "version": null,
+          "versions": []
+        },
+        "beta": {
+          "version": null,
+          "versions": []
+        },
+        "edge": {
+          "version": "v0.0.11",
+          "versions": [
+            "v0.0.11"
+          ]
+        }
+      },
+      "storeError": null,
+      "upstream": {
+        "version": "v0.0.11",
+        "url": "https://github.com/ulyssa/iamb/releases",
+        "error": null
+      }
+    },
+    {
+      "name": "ladder",
+      "title": "ladder",
+      "storeUrl": "https://snapcraft.io/ladder",
+      "channels": {
+        "stable": {
+          "version": "0.0.23",
+          "versions": [
+            "0.0.23"
+          ]
+        },
+        "candidate": {
+          "version": null,
+          "versions": []
+        },
+        "beta": {
+          "version": null,
+          "versions": []
+        },
+        "edge": {
+          "version": "0.0.23",
+          "versions": [
+            "0.0.23"
+          ]
+        }
+      },
+      "storeError": null,
+      "upstream": {
+        "version": "v0.0.23",
+        "url": "https://github.com/everywall/ladder/releases",
+        "error": null
+      }
+    },
+    {
+      "name": "lapin",
+      "title": "lapin",
+      "storeUrl": "https://snapcraft.io/lapin",
+      "channels": {
+        "stable": {
+          "version": "a6b34c9",
+          "versions": [
+            "a6b34c9"
+          ]
+        },
+        "candidate": {
+          "version": null,
+          "versions": []
+        },
+        "beta": {
+          "version": null,
+          "versions": []
+        },
+        "edge": {
+          "version": null,
+          "versions": []
+        }
+      },
+      "storeError": null,
+      "upstream": {
+        "version": null,
+        "url": null,
+        "error": "No releases or tags found"
+      }
+    },
+    {
+      "name": "libation",
+      "title": "Libation",
+      "storeUrl": "https://snapcraft.io/libation",
+      "channels": {
+        "stable": {
+          "version": "13.5.0",
+          "versions": [
+            "13.5.0"
+          ]
+        },
+        "candidate": {
+          "version": null,
+          "versions": []
+        },
+        "beta": {
+          "version": null,
+          "versions": []
+        },
+        "edge": {
+          "version": "13.5.1",
+          "versions": [
+            "13.5.1"
+          ]
+        }
+      },
+      "storeError": null,
+      "upstream": {
+        "version": "v13.5.1",
+        "url": "https://github.com/rmcrackan/Libation/releases",
+        "error": null
+      }
+    },
+    {
+      "name": "linuxtycoon",
+      "title": "Linux Tycoon",
+      "storeUrl": "https://snapcraft.io/linuxtycoon",
+      "channels": {
+        "stable": {
+          "version": "0.9.2",
+          "versions": [
+            "0.9.2"
+          ]
+        },
+        "candidate": {
+          "version": null,
+          "versions": []
+        },
+        "beta": {
+          "version": null,
+          "versions": []
+        },
+        "edge": {
+          "version": "0.9.2",
+          "versions": [
+            "0.9.2"
+          ]
+        }
+      },
+      "storeError": null,
+      "upstream": {
+        "version": null,
+        "url": null,
+        "error": "Upstream not configured"
+      }
+    },
+    {
+      "name": "mame",
+      "title": "MAME",
+      "storeUrl": "https://snapcraft.io/mame",
+      "channels": {
+        "stable": {
+          "version": "mame0287",
+          "versions": [
+            "mame0287"
+          ]
+        },
+        "candidate": {
+          "version": null,
+          "versions": []
+        },
+        "beta": {
+          "version": null,
+          "versions": []
+        },
+        "edge": {
+          "version": "mame0288",
+          "versions": [
+            "mame0288",
+            "mame0287"
+          ]
+        }
+      },
+      "storeError": null,
+      "upstream": {
+        "version": "mame0288",
+        "url": "https://github.com/mamedev/mame/releases",
+        "error": null
+      }
+    },
+    {
+      "name": "matterbridge",
+      "title": "Matterbridge",
+      "storeUrl": "https://snapcraft.io/matterbridge",
+      "channels": {
+        "stable": {
+          "version": "v1.26.0",
+          "versions": [
+            "v1.26.0"
+          ]
+        },
+        "candidate": {
+          "version": null,
+          "versions": []
+        },
+        "beta": {
+          "version": "v1.26.0",
+          "versions": [
+            "v1.26.0"
+          ]
+        },
+        "edge": {
+          "version": "v1.26.0",
+          "versions": [
+            "v1.26.0"
+          ]
+        }
+      },
+      "storeError": null,
+      "upstream": {
+        "version": "v1.26.0",
+        "url": "https://github.com/42wim/matterbridge/releases",
+        "error": null
+      }
+    },
+    {
+      "name": "mindustry",
+      "title": "Mindustry",
+      "storeUrl": "https://snapcraft.io/mindustry",
+      "channels": {
+        "stable": {
+          "version": "v159.2",
+          "versions": [
+            "v159.2"
+          ]
+        },
+        "candidate": {
+          "version": null,
+          "versions": []
+        },
+        "beta": {
+          "version": null,
+          "versions": []
+        },
+        "edge": {
+          "version": "v159.7",
+          "versions": [
+            "v159.7"
+          ]
+        }
+      },
+      "storeError": null,
+      "upstream": {
+        "version": "v159.7",
+        "url": "https://github.com/Anuken/Mindustry/releases",
+        "error": null
+      }
+    },
+    {
+      "name": "monolith",
+      "title": "monolith",
+      "storeUrl": "https://snapcraft.io/monolith",
+      "channels": {
+        "stable": {
+          "version": null,
+          "versions": []
+        },
+        "candidate": {
+          "version": null,
+          "versions": []
+        },
+        "beta": {
+          "version": null,
+          "versions": []
+        },
+        "edge": {
+          "version": null,
+          "versions": []
+        }
+      },
+      "storeError": "HTTP Error 429: Too Many Requests",
+      "upstream": {
+        "version": null,
+        "url": null,
+        "error": "Collection failed"
+      }
+    },
+    {
+      "name": "natron",
+      "title": "Natron",
+      "storeUrl": "https://snapcraft.io/natron",
+      "channels": {
+        "stable": {
+          "version": "2.5.0",
+          "versions": [
+            "2.5.0"
+          ]
+        },
+        "candidate": {
+          "version": null,
+          "versions": []
+        },
+        "beta": {
+          "version": "2.5.0",
+          "versions": [
+            "2.5.0"
+          ]
+        },
+        "edge": {
+          "version": "2.5.0",
+          "versions": [
+            "2.5.0"
+          ]
+        }
+      },
+      "storeError": null,
+      "upstream": {
+        "version": "v2.5.0",
+        "url": "https://github.com/NatronGitHub/Natron/releases",
+        "error": null
+      }
+    },
+    {
+      "name": "ncspot",
+      "title": "ncspot",
+      "storeUrl": "https://snapcraft.io/ncspot",
+      "channels": {
+        "stable": {
+          "version": "1.3.4",
+          "versions": [
+            "1.3.4",
+            "1.3.2"
+          ]
+        },
+        "candidate": {
+          "version": null,
+          "versions": []
+        },
+        "beta": {
+          "version": null,
+          "versions": []
+        },
+        "edge": {
+          "version": "1.3.4",
+          "versions": [
+            "1.3.4",
+            "1.3.2"
+          ]
+        }
+      },
+      "storeError": null,
+      "upstream": {
+        "version": "v1.3.4",
+        "url": "https://github.com/hrkfdn/ncspot/releases",
+        "error": null
+      }
+    },
+    {
+      "name": "notepadnext",
+      "title": "Notepad Next",
+      "storeUrl": "https://snapcraft.io/notepadnext",
+      "channels": {
+        "stable": {
+          "version": "v0.14",
+          "versions": [
+            "v0.14"
+          ]
+        },
+        "candidate": {
+          "version": null,
+          "versions": []
+        },
+        "beta": {
+          "version": null,
+          "versions": []
+        },
+        "edge": {
+          "version": "v0.14",
+          "versions": [
+            "v0.14"
+          ]
+        }
+      },
+      "storeError": null,
+      "upstream": {
+        "version": "v0.14",
+        "url": "https://github.com/dail8859/NotepadNext/releases",
+        "error": null
+      }
+    },
+    {
+      "name": "openboardview",
+      "title": "OpenBoardView",
+      "storeUrl": "https://snapcraft.io/openboardview",
+      "channels": {
+        "stable": {
+          "version": "8.0",
+          "versions": [
+            "8.0"
+          ]
+        },
+        "candidate": {
+          "version": null,
+          "versions": []
+        },
+        "beta": {
+          "version": null,
+          "versions": []
+        },
+        "edge": {
+          "version": "8.0",
+          "versions": [
+            "8.0"
+          ]
+        }
+      },
+      "storeError": null,
+      "upstream": {
+        "version": null,
+        "url": null,
+        "error": "HTTP Error 404: Not Found"
+      }
+    },
+    {
+      "name": "pencil",
+      "title": "Pencil",
+      "storeUrl": "https://snapcraft.io/pencil",
+      "channels": {
+        "stable": {
+          "version": "3.1.1",
+          "versions": [
+            "3.1.1"
+          ]
+        },
+        "candidate": {
+          "version": null,
+          "versions": []
+        },
+        "beta": {
+          "version": null,
+          "versions": []
+        },
+        "edge": {
+          "version": "3.1.1",
+          "versions": [
+            "3.1.1"
+          ]
+        }
+      },
+      "storeError": null,
+      "upstream": {
+        "version": "v3.1.1",
+        "url": "https://github.com/evolus/pencil/releases",
+        "error": null
+      }
+    },
+    {
+      "name": "pwbm",
+      "title": "Personal WayBack Machine",
+      "storeUrl": "https://snapcraft.io/pwbm",
+      "channels": {
+        "stable": {
+          "version": "0.1",
+          "versions": [
+            "0.1"
+          ]
+        },
+        "candidate": {
+          "version": null,
+          "versions": []
+        },
+        "beta": {
+          "version": null,
+          "versions": []
+        },
+        "edge": {
+          "version": "0.1",
+          "versions": [
+            "0.1"
+          ]
+        }
+      },
+      "storeError": null,
+      "upstream": {
+        "version": null,
+        "url": null,
+        "error": "No releases or tags found"
+      }
+    },
+    {
+      "name": "pioneer",
+      "title": "Pioneer Space Simulator",
+      "storeUrl": "https://snapcraft.io/pioneer",
+      "channels": {
+        "stable": {
+          "version": "20260203",
+          "versions": [
+            "20260203"
+          ]
+        },
+        "candidate": {
+          "version": null,
+          "versions": []
+        },
+        "beta": {
+          "version": null,
+          "versions": []
+        },
+        "edge": {
+          "version": "20260203",
+          "versions": [
+            "20260203"
+          ]
+        }
+      },
+      "storeError": null,
+      "upstream": {
+        "version": "20260203",
+        "url": "https://github.com/pioneerspacesim/pioneer/releases",
+        "error": null
+      }
+    },
+    {
+      "name": "piqueserver",
+      "title": "piqueserver",
+      "storeUrl": "https://snapcraft.io/piqueserver",
+      "channels": {
+        "stable": {
+          "version": "1.0.0",
+          "versions": [
+            "1.0.0"
+          ]
+        },
+        "candidate": {
+          "version": "1.0.0",
+          "versions": [
+            "1.0.0"
+          ]
+        },
+        "beta": {
+          "version": null,
+          "versions": []
+        },
+        "edge": {
+          "version": "1.4.1",
+          "versions": [
+            "1.4.1"
+          ]
+        }
+      },
+      "storeError": null,
+      "upstream": {
+        "version": "v1.4.2",
+        "url": "https://github.com/piqueserver/piqueserver/releases",
+        "error": null
+      }
+    },
+    {
+      "name": "rota",
+      "title": "ROTA",
+      "storeUrl": "https://snapcraft.io/rota",
+      "channels": {
+        "stable": {
+          "version": "2024.04.09",
+          "versions": [
+            "2024.04.09"
+          ]
+        },
+        "candidate": {
+          "version": null,
+          "versions": []
+        },
+        "beta": {
+          "version": null,
+          "versions": []
+        },
+        "edge": {
+          "version": null,
+          "versions": []
+        }
+      },
+      "storeError": null,
+      "upstream": {
+        "version": "2026.03.12",
+        "url": "https://github.com/HarmonyHoney/ROTA/releases",
+        "error": null
+      }
+    },
+    {
+      "name": "rustscan",
+      "title": "RustScan",
+      "storeUrl": "https://snapcraft.io/rustscan",
+      "channels": {
+        "stable": {
+          "version": "2.4.1",
+          "versions": [
+            "2.4.1"
+          ]
+        },
+        "candidate": {
+          "version": null,
+          "versions": []
+        },
+        "beta": {
+          "version": "2.4.1",
+          "versions": [
+            "2.4.1"
+          ]
+        },
+        "edge": {
+          "version": "2.4.1-161-ge9dadb4",
+          "versions": [
+            "2.4.1-161-ge9dadb4",
+            "2.4.1"
+          ]
+        }
+      },
+      "storeError": null,
+      "upstream": {
+        "version": "2.4.1",
+        "url": "https://github.com/RustScan/RustScan/releases",
+        "error": null
+      }
+    },
+    {
+      "name": "sbommage",
+      "title": "sbommage",
+      "storeUrl": "https://snapcraft.io/sbommage",
+      "channels": {
+        "stable": {
+          "version": "1.0.2",
+          "versions": [
+            "1.0.2"
+          ]
+        },
+        "candidate": {
+          "version": null,
+          "versions": []
+        },
+        "beta": {
+          "version": null,
+          "versions": []
+        },
+        "edge": {
+          "version": "1.0.2",
+          "versions": [
+            "1.0.2"
+          ]
+        }
+      },
+      "storeError": null,
+      "upstream": {
+        "version": "v1.0.2",
+        "url": "https://github.com/popey/sbommage/releases",
+        "error": null
+      }
+    },
+    {
+      "name": "session-desktop",
+      "title": "Session Desktop",
+      "storeUrl": "https://snapcraft.io/session-desktop",
+      "channels": {
+        "stable": {
+          "version": "1.18.0",
+          "versions": [
+            "1.18.0"
+          ]
+        },
+        "candidate": {
+          "version": null,
+          "versions": []
+        },
+        "beta": {
+          "version": null,
+          "versions": []
+        },
+        "edge": {
+          "version": "1.18.0",
+          "versions": [
+            "1.18.0"
+          ]
+        }
+      },
+      "storeError": null,
+      "upstream": {
+        "version": "v1.18.1",
+        "url": "https://github.com/session-foundation/session-desktop/releases",
+        "error": null
+      }
+    },
+    {
+      "name": "sfxr",
+      "title": "sfxr",
+      "storeUrl": "https://snapcraft.io/sfxr",
+      "channels": {
+        "stable": {
+          "version": "1.2.1",
+          "versions": [
+            "1.2.1"
+          ]
+        },
+        "candidate": {
+          "version": null,
+          "versions": []
+        },
+        "beta": {
+          "version": "1.2.1",
+          "versions": [
+            "1.2.1"
+          ]
+        },
+        "edge": {
+          "version": "1.2.1",
+          "versions": [
+            "1.2.1"
+          ]
+        }
+      },
+      "storeError": null,
+      "upstream": {
+        "version": null,
+        "url": null,
+        "error": "No releases or tags found"
+      }
+    },
+    {
+      "name": "shattered-pixel-dungeon",
+      "title": "Shattered Pixel Dungeon",
+      "storeUrl": "https://snapcraft.io/shattered-pixel-dungeon",
+      "channels": {
+        "stable": {
+          "version": "v3.3.8",
+          "versions": [
+            "v3.3.8"
+          ]
+        },
+        "candidate": {
+          "version": null,
+          "versions": []
+        },
+        "beta": {
+          "version": null,
+          "versions": []
+        },
+        "edge": {
+          "version": "v3.3.8",
+          "versions": [
+            "v3.3.8"
+          ]
+        }
+      },
+      "storeError": null,
+      "upstream": {
+        "version": "v3.3.8",
+        "url": "https://github.com/00-Evan/shattered-pixel-dungeon/releases",
+        "error": null
+      }
+    },
+    {
+      "name": "slomore",
+      "title": "Slow More.",
+      "storeUrl": "https://snapcraft.io/slomore",
+      "channels": {
+        "stable": {
+          "version": "0.1.0",
+          "versions": [
+            "0.1.0"
+          ]
+        },
+        "candidate": {
+          "version": null,
+          "versions": []
+        },
+        "beta": {
+          "version": null,
+          "versions": []
+        },
+        "edge": {
+          "version": null,
+          "versions": []
+        }
+      },
+      "storeError": null,
+      "upstream": {
+        "version": "0.1.0",
+        "url": "https://github.com/popey/slomore/releases",
+        "error": null
+      }
+    },
+    {
+      "name": "spectrum-analyser",
+      "title": "Spectrum Analyser",
+      "storeUrl": "https://snapcraft.io/spectrum-analyser",
+      "channels": {
+        "stable": {
+          "version": "v0.2.0-alpha-master",
+          "versions": [
+            "v0.2.0-alpha-master"
+          ]
+        },
+        "candidate": {
+          "version": null,
+          "versions": []
+        },
+        "beta": {
+          "version": null,
+          "versions": []
+        },
+        "edge": {
+          "version": "weekly-2026-02-01-3-g319f76eb",
+          "versions": [
+            "weekly-2026-02-01-3-g319f76eb",
+            "weekly-2026-02-01"
+          ]
+        }
+      },
+      "storeError": null,
+      "upstream": {
+        "version": "weekly-2026-05-24",
+        "url": "https://github.com/TheGoodDoktor/8BitAnalysers/releases",
+        "error": null
+      }
+    },
+    {
+      "name": "streamsprouting",
+      "title": "Stream Sprouting",
+      "storeUrl": "https://snapcraft.io/streamsprouting",
+      "channels": {
+        "stable": {
+          "version": null,
+          "versions": []
+        },
+        "candidate": {
+          "version": null,
+          "versions": []
+        },
+        "beta": {
+          "version": null,
+          "versions": []
+        },
+        "edge": {
+          "version": "0.2.0",
+          "versions": [
+            "0.2.0"
+          ]
+        }
+      },
+      "storeError": null,
+      "upstream": {
+        "version": null,
+        "url": null,
+        "error": "Upstream not configured"
+      }
+    },
+    {
+      "name": "suckit",
+      "title": "Suck the InTernet",
+      "storeUrl": "https://snapcraft.io/suckit",
+      "channels": {
+        "stable": {
+          "version": "0.2.0-30-g103d4a7",
+          "versions": [
+            "0.2.0-30-g103d4a7"
+          ]
+        },
+        "candidate": {
+          "version": null,
+          "versions": []
+        },
+        "beta": {
+          "version": "0.2.0-30-g103d4a7",
+          "versions": [
+            "0.2.0-30-g103d4a7"
+          ]
+        },
+        "edge": {
+          "version": "0.2.0-30-g103d4a7",
+          "versions": [
+            "0.2.0-30-g103d4a7"
+          ]
+        }
+      },
+      "storeError": null,
+      "upstream": {
+        "version": "v0.2.0",
+        "url": "https://github.com/Skallwar/suckit/releases",
+        "error": null
+      }
+    },
+    {
+      "name": "syft",
+      "title": "Syft - SBOM Generator",
+      "storeUrl": "https://snapcraft.io/syft",
+      "channels": {
+        "stable": {
+          "version": "v1.48.0",
+          "versions": [
+            "v1.48.0"
+          ]
+        },
+        "candidate": {
+          "version": null,
+          "versions": []
+        },
+        "beta": {
+          "version": null,
+          "versions": []
+        },
+        "edge": {
+          "version": "v1.48.0",
+          "versions": [
+            "v1.48.0"
+          ]
+        }
+      },
+      "storeError": null,
+      "upstream": {
+        "version": "v1.49.0",
+        "url": "https://github.com/anchore/syft/releases",
+        "error": null
+      }
+    },
+    {
+      "name": "telegram-asahi",
+      "title": "Telegram Desktop - Unofficial Asahi only",
+      "storeUrl": "https://snapcraft.io/telegram-asahi",
+      "channels": {
+        "stable": {
+          "version": "6.9.3",
+          "versions": [
+            "6.9.3"
+          ]
+        },
+        "candidate": {
+          "version": "6.9.3",
+          "versions": [
+            "6.9.3"
+          ]
+        },
+        "beta": {
+          "version": null,
+          "versions": []
+        },
+        "edge": {
+          "version": null,
+          "versions": []
+        }
+      },
+      "storeError": null,
+      "upstream": {
+        "version": "v7.0.4",
+        "url": "https://github.com/telegramdesktop/tdesktop/releases",
+        "error": null
+      }
+    },
+    {
+      "name": "tessl",
+      "title": "Tessl",
+      "storeUrl": "https://snapcraft.io/tessl",
+      "channels": {
+        "stable": {
+          "version": null,
+          "versions": []
+        },
+        "candidate": {
+          "version": null,
+          "versions": []
+        },
+        "beta": {
+          "version": null,
+          "versions": []
+        },
+        "edge": {
+          "version": null,
+          "versions": []
+        }
+      },
+      "storeError": null,
+      "upstream": {
+        "version": "0.92.0",
+        "url": "https://www.npmjs.com/package/@tessl/cli",
+        "error": null
+      }
+    },
+    {
+      "name": "toot",
+      "title": "toot - Mastodon CLI & TUI",
+      "storeUrl": "https://snapcraft.io/toot",
+      "channels": {
+        "stable": {
+          "version": "0.52.1",
+          "versions": [
+            "0.52.1"
+          ]
+        },
+        "candidate": {
+          "version": null,
+          "versions": []
+        },
+        "beta": {
+          "version": null,
+          "versions": []
+        },
+        "edge": {
+          "version": "0.52.1",
+          "versions": [
+            "0.52.1"
+          ]
+        }
+      },
+      "storeError": null,
+      "upstream": {
+        "version": "0.52.1",
+        "url": "https://github.com/ihabunek/toot/releases",
+        "error": null
+      }
+    },
+    {
+      "name": "twinejs",
+      "title": "Twine",
+      "storeUrl": "https://snapcraft.io/twinejs",
+      "channels": {
+        "stable": {
+          "version": "2.12.0",
+          "versions": [
+            "2.12.0"
+          ]
+        },
+        "candidate": {
+          "version": null,
+          "versions": []
+        },
+        "beta": {
+          "version": null,
+          "versions": []
+        },
+        "edge": {
+          "version": "2.12.0",
+          "versions": [
+            "2.12.0"
+          ]
+        }
+      },
+      "storeError": null,
+      "upstream": {
+        "version": "2.12.0",
+        "url": "https://github.com/klembot/twinejs/releases",
+        "error": null
+      }
+    },
+    {
+      "name": "word-salad",
+      "title": "Word Salad",
+      "storeUrl": "https://snapcraft.io/word-salad",
+      "channels": {
+        "stable": {
+          "version": "0.1",
+          "versions": [
+            "0.1"
+          ]
+        },
+        "candidate": {
+          "version": null,
+          "versions": []
+        },
+        "beta": {
+          "version": null,
+          "versions": []
+        },
+        "edge": {
+          "version": "0.1",
+          "versions": [
+            "0.1"
+          ]
+        }
+      },
+      "storeError": null,
+      "upstream": {
+        "version": null,
+        "url": null,
+        "error": "Upstream not configured"
+      }
+    },
+    {
+      "name": "zx-pokemaster",
+      "title": "ZX Pokemaster",
+      "storeUrl": "https://snapcraft.io/zx-pokemaster",
+      "channels": {
+        "stable": {
+          "version": "1.6",
+          "versions": [
+            "1.6"
+          ]
+        },
+        "candidate": {
+          "version": null,
+          "versions": []
+        },
+        "beta": {
+          "version": null,
+          "versions": []
+        },
+        "edge": {
+          "version": "1.6",
+          "versions": [
+            "1.6"
+          ]
+        }
+      },
+      "storeError": null,
+      "upstream": {
+        "version": null,
+        "url": null,
+        "error": "Non-version tag in github response: public"
+      }
+    },
+    {
+      "name": "null",
+      "title": "\u2205",
+      "storeUrl": "https://snapcraft.io/null",
+      "channels": {
+        "stable": {
+          "version": "null",
+          "versions": [
+            "null"
+          ]
+        },
+        "candidate": {
+          "version": null,
+          "versions": []
+        },
+        "beta": {
+          "version": null,
+          "versions": []
+        },
+        "edge": {
+          "version": null,
+          "versions": []
+        }
+      },
+      "storeError": null,
+      "upstream": {
+        "version": null,
+        "url": null,
+        "error": "Upstream not configured"
+      }
+    }
+  ]
+}

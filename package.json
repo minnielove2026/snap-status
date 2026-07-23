@@ -1,0 +1,27 @@
+{
+  "name": "snap-status",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "check": "tsc --noEmit",
+    "test": "vitest run",
+    "dev": "vite",
+    "preview": "vite preview",
+    "collect": "python3 scripts/collect.py",
+    "test:collector": "python3 -m unittest discover -s tests -p 'test_*.py' -v",
+    "verify": "npm run test && npm run test:collector && npm run check && npm run build",
+    "deploy": "npm run build && wrangler deploy"
+  },
+  "devDependencies": {
+    "@types/node": "^26.1.1",
+    "typescript": "5.9.3",
+    "vite": "8.1.5",
+    "vitest": "4.1.0",
+    "wrangler": "4.113.0"
+  },
+  "overrides": {
+    "sharp": "0.35.3"
+  }
+}
