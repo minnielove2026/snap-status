@@ -1,4 +1,5 @@
 import "./vanilla.scss";
+import { statusNavigationItems } from "./navigation";
 import {
   classifyStatus,
   compareVersions,
@@ -126,11 +127,7 @@ function render(data: DashboardData, snaps: EnrichedSnap[]): void {
         </div>
         <nav class="p-navigation__nav" aria-label="Status filters">
           <ul class="p-navigation__items">
-            ${navItem("All snaps", "all", true)}
-            ${navItem("Update needed", "outdated")}
-            ${navItem("In testing", "testing")}
-            ${navItem("Needs mapping", "unknown")}
-            ${navItem("Manual review", "manual")}
+            ${statusNavigationItems.map(({ label, status }, index) => navItem(label, status, index === 0)).join("")}
           </ul>
           <ul class="p-navigation__items">
             <li class="p-navigation__item"><a class="p-navigation__link" href="https://github.com/popey/snap-status" target="_blank" rel="noreferrer">GitHub ↗</a></li>

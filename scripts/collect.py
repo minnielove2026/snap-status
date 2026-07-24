@@ -56,6 +56,9 @@ def merge_inventory(configured: list[dict[str, Any]], discovered: list[str]) -> 
 
 def tracking_for_entry(entry: dict[str, Any]) -> dict[str, str]:
     tracking = dict(entry.get("tracking") or {"mode": "automatic"})
+    for key, value in tracking.items():
+        if not isinstance(key, str) or not isinstance(value, str):
+            raise ValueError(f"Tracking metadata {key!r} for {entry['name']} must be a string")
     if tracking.get("mode") not in {"automatic", "manual", "static"}:
         raise ValueError(f"Unsupported tracking mode for {entry['name']}: {tracking.get('mode')}")
     return tracking
@@ -190,20 +193,26 @@ def collect(config_path: Path) -> dict[str, Any]:
     inventory = merge_inventory(config["snaps"], discovered)
     snaps: list[dict[str, Any]] = []
     with ThreadPoolExecutor(max_workers=10) as pool:
-        futures = {pool.submit(collect_snap, entry): entry["name"] for entry in inventory}
+        futures = {pool.submit(collect_snap, entry): entry for entry in inventory}
         for future in as_completed(futures):
-            name = futures[future]
+            entry = futures[future]
+            name = entry["name"]
             try:
                 snaps.append(future.result())
             except Exception as error:
+                tracking = tracking_for_entry(entry)
                 snaps.append({
                     "name": name,
                     "title": name,
                     "storeUrl": f"https://snapcraft.io/{name}",
                     "channels": {risk: {"version": None, "versions": []} for risk in RISKS},
                     "storeError": str(error),
-                    "upstream": {"version": None, "url": None, "error": "Collection failed"},
-                    "tracking": {"mode": "automatic"},
+                    "upstream": {
+                        "version": None,
+                        "url": tracking.get("url") if tracking["mode"] != "automatic" else None,
+                        "error": "Collection failed" if tracking["mode"] == "automatic" else None,
+                    },
+                    "tracking": tracking,
                 })
     snaps.sort(key=lambda item: item["title"].casefold())
     return {
