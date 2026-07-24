@@ -54,6 +54,13 @@ def merge_inventory(configured: list[dict[str, Any]], discovered: list[str]) -> 
     return [by_name[name] for name in sorted(by_name)]
 
 
+def tracking_for_entry(entry: dict[str, Any]) -> dict[str, str]:
+    tracking = dict(entry.get("tracking") or {"mode": "automatic"})
+    if tracking.get("mode") not in {"automatic", "manual", "static"}:
+        raise ValueError(f"Unsupported tracking mode for {entry['name']}: {tracking.get('mode')}")
+    return tracking
+
+
 def parse_upstream_payload(provider: str, payload: dict[str, Any]) -> str:
     if provider in {"github", "codeberg"}:
         value = payload.get("tag_name") or payload.get("name")
@@ -159,8 +166,12 @@ def fetch_upstream(config: dict[str, Any] | None) -> dict[str, Any]:
 def collect_snap(entry: dict[str, Any]) -> dict[str, Any]:
     name = entry["name"]
     store = fetch_store_snap(name)
-    upstream = fetch_upstream(entry.get("upstream"))
-    return {
+    tracking = tracking_for_entry(entry)
+    if tracking["mode"] == "automatic":
+        upstream = fetch_upstream(entry.get("upstream"))
+    else:
+        upstream = {"version": None, "url": tracking.get("url"), "error": None}
+    result = {
         "name": name,
         "title": entry.get("title") or store["title"],
         "storeUrl": store["storeUrl"],
@@ -168,6 +179,9 @@ def collect_snap(entry: dict[str, Any]) -> dict[str, Any]:
         "storeError": store["storeError"],
         "upstream": upstream,
     }
+    if tracking["mode"] != "automatic":
+        result["tracking"] = tracking
+    return result
 
 
 def collect(config_path: Path) -> dict[str, Any]:
@@ -189,6 +203,7 @@ def collect(config_path: Path) -> dict[str, Any]:
                     "channels": {risk: {"version": None, "versions": []} for risk in RISKS},
                     "storeError": str(error),
                     "upstream": {"version": None, "url": None, "error": "Collection failed"},
+                    "tracking": {"mode": "automatic"},
                 })
     snaps.sort(key=lambda item: item["title"].casefold())
     return {

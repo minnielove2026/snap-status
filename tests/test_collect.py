@@ -1,6 +1,8 @@
+import json
+from pathlib import Path
 import unittest
 
-from scripts.collect import collapse_channels, merge_inventory, parse_upstream_payload
+from scripts.collect import collapse_channels, merge_inventory, parse_upstream_payload, tracking_for_entry
 
 
 class CollapseChannelsTest(unittest.TestCase):
@@ -48,6 +50,36 @@ class UpstreamPayloadTest(unittest.TestCase):
     def test_rejects_non_version_tags(self):
         with self.assertRaises(ValueError):
             parse_upstream_payload("github", {"tag_name": "public"})
+
+
+class TrackingMetadataTest(unittest.TestCase):
+    def test_defaults_to_automatic_tracking(self):
+        self.assertEqual(tracking_for_entry({"name": "example"}), {"mode": "automatic"})
+
+    def test_preserves_explicit_tracking_metadata(self):
+        tracking = {
+            "mode": "static",
+            "url": "https://example.com/story",
+            "note": "Intentionally unchanged",
+        }
+        self.assertEqual(tracking_for_entry({"name": "example", "tracking": tracking}), tracking)
+
+    def test_known_sources_and_null_are_explicitly_classified(self):
+        config = json.loads(Path("config/snaps.json").read_text())
+        entries = {entry["name"]: entry for entry in config["snaps"]}
+        expected_manual = {
+            "zx-pokemaster": "https://github.com/popey/zx-pokemaster-snap",
+            "pwbm": "https://github.com/popey/pwbm",
+            "add-flatpak": "https://github.com/popey/add-flatpak",
+            "sfxr": "https://github.com/popey/sfxr-snap",
+            "lapin": "https://github.com/popey/lapin-snap",
+            "openboardview": "https://github.com/popey/openboardview-snap",
+        }
+        for name, url in expected_manual.items():
+            self.assertEqual(entries[name]["tracking"]["mode"], "manual")
+            self.assertEqual(entries[name]["tracking"]["url"], url)
+        self.assertEqual(entries["null"]["tracking"]["mode"], "static")
+        self.assertEqual(entries["null"]["tracking"]["url"], "https://popey.com/blog/2021/01/null/")
 
 
 if __name__ == "__main__":
